@@ -13,10 +13,9 @@
 #
 #####################################################################################################
 -----------------------------------------------------------------------------------------------------
-# PrometheanLinkat12.04.sh  --> Script de consola per a la instal·lació de Promethean i Activ Inspire
-# Vàlid per a Linkat 12.04 i 14.04. No provat a 16.04 ni versions lleugeres
+# PrometheanLinkat14.04.sh  --> Script de consola per a la instal·lació de Promethean i Activ Inspire
+# Vàlid per a Linkat 12.04, 14.04 i 16.04. No provat a versions lleugeres
 # Actualitzat a Juny de 2014. 
-# En desenvolupament versió gràfica actualitzada.
 -----------------------------------------------------------------------------------------------------
 #####################################################################################################
 #
