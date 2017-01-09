@@ -59,7 +59,7 @@ fi
 cd smart-notebook11-ubuntu-12.04.3-and-linkat-12.04-32bits
 #
 # Instal·lar paquets de controladors
-zenity --question --title "Instal·lació de Notebook i SmartBoard" --text "Voleu instal·lar els controladors específics de Smartboard al vostre sistema?" --width=350 2> /dev/null
+zenity --question --title "Instal·lació de Notebook i SmartBoard" --text "Voleu instal·lar els controladors de Smartboard al vostre sistema?" --width=350 2> /dev/null
 # Preguntem a l'usuari si vol descarregar els controladors
 # Creem la variable de resposta
 acceptdriversinstall=$(echo $?);
@@ -82,23 +82,6 @@ elif [ "$acceptdriversinstall" == 0 ]; then
 		echo "#S'estan acabant d'instal·lar els controladors necessaris.\n\nEspereu-vos...\n\n"  
 		echo "100" ; sleep 1;
 		) | zenity --progress --title "Instal·lació de Notebook i SmartBoard" --text "Instal·lant els controladors necessaris.\n" --width=400 --no-cancel --auto-close 2> /dev/null;
-# Comprovació si es tracta del model SB480 per instal·lar controladors específics
-sb480=$(dpkg -l | grep xserver-xorg-core | grep ii | tr -s " " | cut -f2 -d " ")
-case $sb480 in
-xserver-xorg-core-lts-quantal)
-sudo -S dpkg -i ./sb480/xf86-input-nextwindow/quantal/xf86-input-nextwindow_0.3.4~precise1_i386.deb ; sudo -S dpkg -i ./sb480/nwfermi_0.6.5.0_i386.deb | zenity --progress --title "Instal·lació de Notebook i SmartBoard" --text "Instal·lant els controladors addicionals per al model SB480.\n" --width=400 --no-cancel --auto-close 2> /dev/null; 
-;;
-xserver-xorg-core-lts-raring)
-sudo -S dpkg -i ./sb480/xf86-input-nextwindow/raring/xf86-input-nextwindow_0.3.4~precise3_i386.deb ; sudo -S dpkg -i ./sb480/nwfermi_0.6.5.0_i386.deb | zenity --progress --title "Instal·lació de Notebook i SmartBoard" --text "Instal·lant els controladors addicionals per al model SB480.\n" --width=400 --no-cancel --auto-close 2> /dev/null;
-;;
-xserver-xorg-core-lts-saucy)
-sudo -S ./sb480/xf86-input-nextwindow/saucy/xf86-input-nextwindow_0.3.4~precise4_i386.deb ;sudo -S dpkg -i ./sb480/nwfermi_0.6.5.0_i386.deb | zenity --progress --title "Instal·lació de Notebook i SmartBoard" --text "Instal·lant els controladors addicionals per al model SB480.\n" --width=400 --no-cancel --auto-close 2> /dev/null;
-;;
-*) 
-zenity --info --title "Instal·lació de Notebook i SmartBoard" --text "No es detecta cap PDI del model SB480.\n" --width=400 --auto-close 2> /dev/null;
-;;
-esac
-
 # Si es produeix un error de selecció d'opció mostrem avis
 else 
 zenity --error --title "Instal·lació de Notebook i SmartBoard" --text "S'ha produït un error.\nTorneu a intentar-ho." --width=350;
@@ -130,6 +113,25 @@ else
 zenity --error --title "Instal·lació de Notebook i SmartBoard" --text "S'ha produït un error.\nTorneu a intentar-ho.\n" --width=350;
 fi
 #
+# Comprovació si es tracta del model SB480 per instal·lar controladors específics
+sb480=$(dpkg -l | grep xserver-xorg-core | grep ii | tr -s " " | cut -f2 -d " ")
+case $sb480 in
+xserver-xorg-core-lts-quantal)
+zenity --info --title "Instal·lació de Notebook i SmartBoard" --text "S'ha detectat que teniu un dispositiu de la sèrie SB480.\nTot seguit s'instal·laran els controladors específics per a aquest model." --width=400 2> /dev/null
+sudo -S dpkg -i ~/smart-notebook11-ubuntu-12.04.3-and-linkat-12.04-32bits/sb480/xf86-input-nextwindow/quantal/xf86-input-nextwindow_0.3.4~precise1_i386.deb ; sudo -S dpkg -i ~/smart-notebook11-ubuntu-12.04.3-and-linkat-12.04-32bits/sb480/nwfermi_0.6.5.0_i386.deb | zenity --progress --title "Instal·lació de Notebook i SmartBoard" --text "Instal·lant els controladors addicionals per al model SB480.\n" --width=400 --no-cancel --auto-close --pulsate 2> /dev/null; 
+;;
+xserver-xorg-core-lts-raring)
+zenity --info --title "Instal·lació de Notebook i SmartBoard" --text "S'ha detectat que teniu un dispositiu de la sèrie SB480.\nTot seguit s'instal·laran els controladors específics per a aquest model." --width=400 2> /dev/null
+sudo -S dpkg -i ~/smart-notebook11-ubuntu-12.04.3-and-linkat-12.04-32bits/sb480/xf86-input-nextwindow/raring/xf86-input-nextwindow_0.3.4~precise3_i386.deb ; sudo -S dpkg -i ~/smart-notebook11-ubuntu-12.04.3-and-linkat-12.04-32bits/sb480/nwfermi_0.6.5.0_i386.deb | zenity --progress --title "Instal·lació de Notebook i SmartBoard" --text "Instal·lant els controladors addicionals per al model SB480.\n" --width=400 --no-cancel --auto-close --pulsate 2> /dev/null;
+;;
+xserver-xorg-core-lts-saucy)
+zenity --info --title "Instal·lació de Notebook i SmartBoard" --text "S'ha detectat que teniu un dispositiu de la sèrie SB480.\nTot seguit s'instal·laran els controladors específics per a aquest model." --width=400 2> /dev/null
+sudo -S dpkg -i ~/smart-notebook11-ubuntu-12.04.3-and-linkat-12.04-32bits/sb480/xf86-input-nextwindow/saucy/xf86-input-nextwindow_0.3.4~precise4_i386.deb ;sudo -S dpkg -i ~/smart-notebook11-ubuntu-12.04.3-and-linkat-12.04-32bits/sb480/nwfermi_0.6.5.0_i386.deb | zenity --progress --title "Instal·lació de Notebook i SmartBoard" --text "Instal·lant els controladors addicionals per al model SB480.\n" --width=400 --no-cancel --auto-close --pulsate 2> /dev/null;
+;;
+*) 
+zenity --info --title "Instal·lació de Notebook i SmartBoard" --text "No es detecta cap PDI del model SB480.\n" --width=400 --auto-close 2> /dev/null;
+;;
+esac
 # 
 # Eliminant els fitxers de descarrega i instal·lació
 sudo -S rm -Rf ../smart-notebook* ../libudev0* | zenity --progress --title "Instal·lació de Notebook i SmartBoard" --text "S'estan eliminant els fitxers temporals de descàrrega...\n" --width=400 --np-cancel --auto-close 2> /dev/null; 
