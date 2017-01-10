@@ -7,15 +7,15 @@
 ----------------------------------------------------------------------------------------
 # SmartBoardLinkat1404.sh  --> Script gràfic d'instal·lació de SmartBoard i Notebook
 # Vàlid per a Linkat 12.04, Linkat 14.04, Linkat 14.04 lleugera, Linkat 16.04 i Linkat 16.04 lleugera.
-# Actualitzat a Desembre de 2016
+# Actualitzat a Gener de 2017
 ----------------------------------------------------------------------------------------
 ########################################################################################
 #
 #####################################################################################################
 -----------------------------------------------------------------------------------------------------
 # PrometheanLinkat14.04.sh  --> Script de consola per a la instal·lació de Promethean i Activ Inspire
-# Vàlid per a Linkat 12.04, 14.04 i 16.04. No provat a versions lleugeres
-# Actualitzat a Desembre de 2016. 
+# Vàlid per a Linkat 12.04, 14.04 i 16.04 (32 i 64 bits). No provat a versions lleugeres
+# Actualitzat a Gener de 2017. 
 -----------------------------------------------------------------------------------------------------
 #####################################################################################################
 #
