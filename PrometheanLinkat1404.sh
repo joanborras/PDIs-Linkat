@@ -220,7 +220,62 @@ sudo -S add-apt-repository --remove 'deb http://activsoftware.co.uk/linux/repos/
 #
 # Si el sistema es de 64 bits
 x86_64)
-
+#
+# Descarreguen el paquet adient per a l'arquitectura de 32 bits
+sudo -S wget https://www.dropbox.com/s/lfgsnwdiytzha0q/Promethean_Driver_64bits-xenial.tar 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire" --text "S'està descarregant el paquet de controladors...\n" --width=400 --no-cancel --auto-close --pulsate 2> /dev/null; 
+#
+# Donem permisos per a l'execució del fitxer
+sudo -S chmod 755 Promethean_Driver_64bits-xenial.tar
+# Descomprimim el fitxer en un altre directori
+sudo -S mkdir ./Promethean_Driver 2> /dev/null
+# Descomprimim
+sudo -S tar -xvf Promethean_Driver_64bits-xenial.tar -C ./Promethean_Driver | zenity --progress --title "Instal·lació de Promethean i Active Inspire" --text "S'estan descomprimint els fitxers...\n" --width=400 --no-cancel --auto-close --pulsate 2> /dev/null; 
+# Instal·lem els paquets de controladors
+(
+		echo "5"
+		echo "#S'està instal·lant activaid\n\n" ; sudo -S dpkg -i ./Promethean_Driver/activaid*.deb 2> /dev/null; 
+		echo "25"
+		echo "#S'està instal·lant activdriver\n\n" ; sudo -S apt-get install dkms; sudo -S dpkg -i ./Promethean_Driver/activdriver*.deb 2> /dev/null ; 
+		echo "50"
+		echo "#S'està instal·lant activtools\n\n" ; sudo -S dpkg -i ./Promethean_Driver/activtools*.deb; sudo apt-get -f install 2> /dev/null ; 
+		echo "75"
+		echo "#S'està instal·lant ActivRelay\n\n" ; sudo -S dpkg -i ./Promethean_Driver/ActivRelay*.deb; sudo apt-get -f install 2> /dev/null ; 
+		echo "99" 
+		echo "#S'estan acabant d'instal·lar els controladors necessaris.\n\nEspereu-vos...\n\n"  
+		echo "100" ; sleep 1;
+		) | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan instal·lant els controladors de la PDI.\nAixò pot trigar una estona. Tingueu paciència...\n" --width=400  --no-cancel --auto-close  2> /dev/null; 
+sudo -S apt-get install -f -y 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'està actualitzant el sistema. Això pot trigar una estona. Tingueu paciència...\n" --width=400  --no-cancel --auto-close  2> /dev/null; 
+# Reparar enllaços simbòlics
+cd /usr/local/lib/ && sudo -S ln -s libactivboardex.so.1.0 libactivboardex.so.1;
+sudo -S ln -s /usr/local/lib /usr/local/lib32 2> /dev/null; sleep 2 | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan reparant els enllaços del sistema...\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
+#
+#
+# Instal·lem els paquets de Active Inspire
+#
+# Descarregant el certificat de Promethean
+sudo -S wget http://www.activsoftware.co.uk/linux/repos/Promethean.asc 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nDescarregant el certificat...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
+#
+# Instal·lant el certificat de Promethean
+sudo -S apt-key add Promethean.asc 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nDescarregant el certificat...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
+#
+# Afegint els repositoris de Promethean
+sudo -S add-apt-repository 'deb http://activsoftware.co.uk/linux/repos/ubuntu trusty oss non-oss' 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nAfegint el repositori de Promethean...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
+#
+# Preparant la instal·lació
+(
+		echo "5"
+		echo "#S'estan instal·lant les biblioteques necessàries.\n\n" ; sudo -S apt-get install -y gcc-multilib ;
+		echo "50" 
+		echo "#S'està instal·lant el programari Active Inspire\n\n" ; sudo -S apt-get install -y activinspire 2> /dev/null ; sudo -S apt-get install -f 2> /dev/null;
+		echo "99" 
+		echo "#S'està acabant d'instal·lar el programari.\n\nEspereu-vos...\n\n"  
+		echo "100" ; sleep 1;
+		) | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan instal·lant el programari Active Inspire.\nAixò pot trigar una estona. Tingueu paciència...\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
+# Eliminant els fitxers de descarrega i instal·lació
+sudo -S add-apt-repository --remove 'deb http://activsoftware.co.uk/linux/repos/ubuntu trusty oss non-oss' 2> /dev/null ; sudo -S rm -Rf ./Promethean_Driver* Promethean.asc* 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire" --text "S'estan eliminant els fitxers temporals d'instal·lació...\n" --width=400 --no-cancel --auto-close 2> /dev/null; 
+#
+;;
+#
 ;;
 esac
 
@@ -238,7 +293,7 @@ fi
 
 # Reiniciem l'equip després de fer els canvis quan hem esgotat el temps d'espera		
 		
-#sudo reboot
+sudo reboot
 
 else
 # En cas que es produeixi un error en la selecció de l'usuari i s'obtingui un codi diferent de 0 o 1 mostrem un missatge d'error.
