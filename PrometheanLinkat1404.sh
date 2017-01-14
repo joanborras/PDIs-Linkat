@@ -276,7 +276,6 @@ sudo -S add-apt-repository --remove 'deb http://activsoftware.co.uk/linux/repos/
 #
 ;;
 #
-;;
 esac
 
 ;;
