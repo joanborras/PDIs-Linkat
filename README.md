@@ -6,8 +6,8 @@ Scripts d'instal·lació de les PDI's a Linkat
 ################################################################################################################
 ----------------------------------------------------------------------------------------------------------------
 # SmartBoardLinkat1404.sh  
-Script gràfic d'instal·lació de SmartBoard i Notebook
-Vàlid per a Linkat 12.04, Linkat 14.04, Linkat 14.04 lleugera, Linkat 16.04 i Linkat 16.04 lleugera (32 bits)
+Script gràfic d'instal·lació de SmartBoard i Notebook. 
+Vàlid per a Linkat 12.04, Linkat 14.04, Linkat 14.04 lleugera, Linkat 16.04 i Linkat 16.04 lleugera (32 bits).
 Actualitzat a Gener de 2017
 ----------------------------------------------------------------------------------------------------------------
 ################################################################################################################
@@ -15,7 +15,7 @@ Actualitzat a Gener de 2017
 #####################################################################################################
 -----------------------------------------------------------------------------------------------------
 # PrometheanLinkat14.04.sh  
-Script gràfic d'instal·lació de Promethean i Activ Inspire
+Script gràfic d'instal·lació de Promethean i Activ Inspire. 
 Vàlid per a Linkat 12.04, 14.04 i 16.04 (32 i 64 bits). No provat a versions lleugeres.
 Actualitzat a Gener de 2017. 
 -----------------------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ Actualitzat a Gener de 2017.
 #####################################################################################
 -------------------------------------------------------------------------------------
 # InterWriteLinkat14.04.sh  
-Script gràfic d'instal·lació de InterWrite
+Script gràfic d'instal·lació de InterWrite. 
 Vàlid per a Linkat 12.04, 14.04 i 16.04 (32 bits). No provat a versions lleugeres.
 Actualitzat a Gener de 2017
 -------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ Actualitzat a Gener de 2017
 ###########################################################################################
 -------------------------------------------------------------------------------------------
 # StarBoardLinkat12.04.sh  
-Script de consola per a la instal·lació de Hitachi Starboard
+Script de consola per a la instal·lació de Hitachi Starboard. 
 Vàlid per a Linkat 12.04. No provat a 14.04, 16.04 ni versions lleugeres.
 Actualitzat a Juny de 2014
 -------------------------------------------------------------------------------------------
