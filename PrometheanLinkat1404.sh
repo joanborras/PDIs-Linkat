@@ -201,7 +201,7 @@ sudo -S wget http://www.activsoftware.co.uk/linux/repos/Promethean.asc 2> /dev/n
 sudo -S apt-key add Promethean.asc 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nDescarregant el certificat...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
 #
 # Afegint els repositoris de Promethean
-sudo -S add-apt-repository 'deb http://activsoftware.co.uk/linux/repos/ubuntu precise oss non-oss' 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nAfegint el repositori de Promethean...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
+sudo -S add-apt-repository 'deb http://activsoftware.co.uk/linux/repos/ubuntu trusty oss non-oss' 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nAfegint el repositori de Promethean...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
 #
 # Preparant la instal·lació
 (
@@ -215,7 +215,7 @@ sudo -S apt-get install -y gcc-multilib ;
 		echo "100" ; sleep 1;
 		) | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan instal·lant el programari Active Inspire.\nAixò pot trigar una estona. Tingueu paciència...\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
 # Eliminant els fitxers de descarrega i instal·lació
-sudo -S add-apt-repository --remove 'deb http://activsoftware.co.uk/linux/repos/ubuntu trusty oss non-oss' 2> /dev/null ; sudo -S rm -Rf ./Promethean_Driver* Promethean.asc* 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire" --text "S'estan eliminant els fitxers temporals d'instal·lació...\n" --width=400 --no-cancel --auto-close 2> /dev/null; 
+sudo -S add-apt-repository --remove 'deb http://activsoftware.co.uk/linux/repos/ubuntu trusty oss non-oss' 2> /dev/null ; sudo -S rm -Rf ./Promethean_Driver* Promethean.asc* ./libssl0.9.8* 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire" --text "S'estan eliminant els fitxers temporals d'instal·lació...\n" --width=400 --no-cancel --auto-close 2> /dev/null; 
 #
 ;;
 #
