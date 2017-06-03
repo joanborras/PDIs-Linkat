@@ -186,7 +186,8 @@ sudo -S tar -xvf Promethean_Driver_32bits-xenial.tar -C ./Promethean_Driver | ze
 		) | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan instal·lant els controladors de la PDI.\nAixò pot trigar una estona. Tingueu paciència...\n" --width=400  --no-cancel --auto-close  2> /dev/null; 
 sudo -S apt-get install -f -y 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'està actualitzant el sistema. Això pot trigar una estona. Tingueu paciència...\n" --width=400  --no-cancel --auto-close  2> /dev/null; 
 # Instal·lar paquets addicionals i dependències necessaries
-sudo -S apt-get install -y module-assistant 2> /dev/null ; sudo -S apt-get -y install libnss3-tools gamin libgamin0 libnss3-tools libxdo3 xdotool 2> /dev/null ; sudo -S apt-get -f install 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan instal·lant paquets addicionals i altres dependències...\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
+wget http://archive.ubuntu.com/ubuntu/pool/universe/o/openssl098/libssl0.9.8_0.9.8o-7ubuntu3.2.14.04.1_i386.deb
+sudo -S dpkg -i ./libssl0.9.8_0.9.8o-7ubuntu3.2.14.04.1_i386.deb  2> /dev/null ; sudo -S apt-get install -y module-assistant 2> /dev/null ; sudo -S apt-get -y install libnss3-tools gamin libgamin0 libnss3-tools libxdo3 xdotool 2> /dev/null ; sudo -S apt-get -f install 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan instal·lant paquets addicionals i altres dependències...\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
 # Reparar enllaços simbòlics
 sudo -S ln -s /usr/local/lib /usr/local/lib32 2> /dev/null; sleep 2 | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan reparant els enllaços del sistema...\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
 #
@@ -200,7 +201,7 @@ sudo -S wget http://www.activsoftware.co.uk/linux/repos/Promethean.asc 2> /dev/n
 sudo -S apt-key add Promethean.asc 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nDescarregant el certificat...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
 #
 # Afegint els repositoris de Promethean
-sudo -S add-apt-repository 'deb http://activsoftware.co.uk/linux/repos/ubuntu trusty oss non-oss' 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nAfegint el repositori de Promethean...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
+sudo -S add-apt-repository 'deb http://activsoftware.co.uk/linux/repos/ubuntu precise oss non-oss' 2> /dev/null | zenity --progress --title "Instal·lació de Promethean i Active Inspire"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nAfegint el repositori de Promethean...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
 #
 # Preparant la instal·lació
 (
