@@ -16,7 +16,7 @@ Actualitzat a Gener de 2017
 -----------------------------------------------------------------------------------------------------
 # PrometheanLinkat14.04.sh  
 Script gràfic d'instal·lació de Promethean i Activ Inspire. 
-Vàlid per a Linkat 12.04, 14.04 i 16.04 (32 i 64 bits). No provat a versions lleugeres.
+Vàlid per a Linkat 12.04, 14.04, 16.04 (32 i 64 bits) i 16.04 lleugera. 
 Actualitzat a Gener de 2017. 
 -----------------------------------------------------------------------------------------------------
 #####################################################################################################
