@@ -44,7 +44,7 @@ elif [ "$acceptdwld" == 0 ]; then
 # Creem el directori de descàrrega i instal·lació.
 if [ ! -d ./InterWrite/ ]; then sudo -S mkdir ./InterWrite/ | zenity --progress --title "Instal·lació de InterWrite i eInstruction"  --text "S'estan realitzant les operacions prèvies a la instal·lació.\nCreant l'estructura del directori de descàrrega i instal·lació...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; fi
 #
-# Descarrega del paquet de programari StarBoard
+# Descarrega del paquet de programari InterWrite
 cd ./InterWrite; sudo -S wget legacy.einstruction.com/support_downloads/files/linux/Workspace_Linux_6.1.54.71415.zip ./Interwrite/ | zenity --progress --title "Instal·lació de InterWrite i eInstruction"  --text "S'está descarregant el paquet d'instal·lació...\n\n" --width=400  --no-cancel --auto-close --pulsate 2> /dev/null; 
 #
 # Creant un enllaç simbòlic a les llibreries
